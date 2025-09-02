@@ -1,28 +1,12 @@
--- Question 1: Retrieve checkNumber, paymentDate, and amount from the payments table
-SELECT checkNumber, paymentDate, amount
-FROM payments;
+-- Question 1: Drop an index named IdxPhone from customers table
+DROP INDEX IdxPhone ON customers;
 
--- Question 2: Retrieve orderDate, requiredDate, and status of orders that are 'In Process' from the orders table.
--- Sort results in descending order of orderDate
-SELECT orderDate, requiredDate, status
-FROM orders
-WHERE status = 'In Process'
-ORDER BY orderDate DESC;
+-- Question 2: Create a user named bob with the password 'S$cu3r3!', restricted to the localhost hostname
+CREATE USER 'bob'@'localhost' IDENTIFIED BY 'S$cu3r3!';
 
--- Question 3: Display firstName, lastName, and email of employees whose job title is 'Sales Rep'
--- Order them in descending order of employeeNumber
-SELECT firstName, lastName, email
-FROM employees
-WHERE jobTitle = 'Sales Rep'
-ORDER BY employeeNumber DESC;
+-- Question 3: Grant the INSERT privilege to the user bob on the salesDB database
+GRANT INSERT ON salesDB.* TO 'bob'@'localhost';
 
--- Question 4: Retrieve all the columns and records from the offices table
-SELECT *
-FROM offices;
+-- Question 4: Change the password for the user bob to 'P$55!23'
+ALTER USER 'bob'@'localhost' IDENTIFIED BY 'P$55!23';
 
--- Question 5: Fetch productName and quantityInStock from the products table.
--- Sort results in ascending order of buyPrice and limit the output to 5 records
-SELECT productName, quantityInStock
-FROM products
-ORDER BY buyPrice ASC
-LIMIT 5;
